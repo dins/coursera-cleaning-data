@@ -39,6 +39,6 @@ setnames(meanAndStdSet, meanAndStdColumns$summaryDataName)
 meanAndStdSet <- cbind(subjects, activity, meanAndStdSet)
 meansBySubcjetIdAndActivity <- summarise_each(group_by(meanAndStdSet, subjectId, activity), funs(mean))
 
-summaryFile <- paste(dataDir, "/../summary.csv", sep="")
-write.csv(meansBySubcjetIdAndActivity, summaryFile, row.names = FALSE, quote = FALSE, sep = ",")
+summaryFile <- paste(dataDir, "/../summary.txt", sep="")
+write.table(meansBySubcjetIdAndActivity, summaryFile, row.names = FALSE)
 
